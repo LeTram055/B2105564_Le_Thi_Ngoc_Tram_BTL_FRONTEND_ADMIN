@@ -1,10 +1,11 @@
 import { createWebHistory, createRouter } from "vue-router";
-//import useAuthStore from "@/stores/auth.store.js";
+import useAuthStore from "@/stores/auth.store.js";
 
 import Home from "@/views/Home.vue";
 import Login from "@/views/Login.vue";
 import Register from "@/views/Register.vue";
-//import Publisher from "@/views/Publisher.vue";
+import Publisher from "@/views/Publisher.vue";
+import UpdatePublisher from "@/views/UpdatePublisher.vue";
 
 import NotFound from "@/views/NotFound.vue";
 
@@ -32,26 +33,26 @@ const routes = [
                 component: Home,
                 name: "adminHome",
             },
-            // {
-            //     path: "publishers",
-            //     children: [
-            //         {
-            //             path: "",
-            //             component: Publisher,
-            //             name: "adminPublishers",
-            //         },
-            //         {
-            //             path: "update-publisher/:id",
-            //             component: UpdatePublisher,
-            //             name: "adminUpdatePublisher",
-            //         },
-            //         {
-            //             path: "create-publisher",
-            //             component: CreatePublisher,
-            //             name: "adminCreatePublisher",
-            //         },
-            //     ]
-            // }
+            {
+                path: "publishers",
+                children: [
+                    {
+                        path: "",
+                        component: Publisher,
+                        name: "publishers",
+                    },
+                    {
+                        path: "update-publisher/:id",
+                        component: UpdatePublisher,
+                        name: "updatePublisher",
+                    },
+                    {
+                        path: "create-publisher",
+                        component: UpdatePublisher,
+                        name: "createPublisher",
+                    },
+                ]
+            }
         ],
     },
     

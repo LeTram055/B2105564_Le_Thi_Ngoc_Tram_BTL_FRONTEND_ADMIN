@@ -1,9 +1,9 @@
 <template>
 
     <header-app :role="role" @login="handleLogin" @logout="handleLogout"></header-app>
-    <div class="container">
-        <router-view @login="handleLogin"></router-view>
-    </div>
+    
+    <router-view @login="handleLogin"></router-view>
+    
 
     
 </template>
