@@ -8,6 +8,8 @@ import Publisher from "@/views/Publisher.vue";
 import UpdatePublisher from "@/views/UpdatePublisher.vue";
 import Book from "@/views/Book.vue";
 import UpdateBook from "@/views/UpdateBook.vue";
+import Employee from "@/views/Employee.vue";
+import UpdateEmployee from "@/views/UpdateEmployee.vue";
 
 import NotFound from "@/views/NotFound.vue";
 
@@ -75,7 +77,28 @@ const routes = [
                         name: "createPublisher",
                     },
                 ]
-            }
+            },
+
+            {
+                path: "employees",
+                children: [
+                    {
+                        path: "",
+                        component: Employee,
+                        name: "employees",
+                    },
+                    {
+                        path: "update-employee/:id",
+                        component: UpdateEmployee,
+                        name: "updateEmployee",
+                    },
+                    {
+                        path: "create-employee",
+                        component: UpdateEmployee,
+                        name: "createEmployee",
+                    },
+                ]
+            },
         ],
     },
     
