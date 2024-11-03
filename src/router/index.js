@@ -6,6 +6,8 @@ import Login from "@/views/Login.vue";
 import Register from "@/views/Register.vue";
 import Publisher from "@/views/Publisher.vue";
 import UpdatePublisher from "@/views/UpdatePublisher.vue";
+import Book from "@/views/Book.vue";
+import UpdateBook from "@/views/UpdateBook.vue";
 
 import NotFound from "@/views/NotFound.vue";
 
@@ -33,6 +35,27 @@ const routes = [
                 component: Home,
                 name: "adminHome",
             },
+            {
+                path: "books",
+                children: [
+                    {
+                        path: "",
+                        component: Book,
+                        name: "books",
+                    },
+                    {
+                        path: "update-book/:id",
+                        component: UpdateBook,
+                        name: "updateBook",
+                    },
+                    {
+                        path: "create-book",
+                        component: UpdateBook,
+                        name: "createBook",
+                    },
+                ]
+            },
+
             {
                 path: "publishers",
                 children: [

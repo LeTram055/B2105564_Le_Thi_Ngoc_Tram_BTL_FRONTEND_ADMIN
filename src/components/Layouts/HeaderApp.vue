@@ -5,9 +5,9 @@
             <img src="../../../src/assets/images/logo.png" width="30" height="30" class="navbar-logo" alt="Logo">
         </router-link>
         <nav-item :title="'Trang chủ'" :routerName="'adminHome'" class="navbar-brand"></nav-item>
-        <!-- <nav-item :title="'Sách'" :routerName="'productPage'" class="navbar-brand"></nav-item> -->
+        <nav-item :title="'Sách'" :routerName="'books'" class="navbar-brand"></nav-item>
         <nav-item :title="'Nhà xuất bản'" :routerName="'publishers'" class="navbar-brand"></nav-item>
-        <!-- <nav-item :title="'Duyệt đơn hàng'" :routerName="'orderPage'" class="navbar-brand"></nav-item> -->
+        <!-- <nav-item :title="'Duyệt đơn mượn'" :routerName="'orderPage'" class="navbar-brand"></nav-item> -->
         <div class="btn-group dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-expanded="false">
