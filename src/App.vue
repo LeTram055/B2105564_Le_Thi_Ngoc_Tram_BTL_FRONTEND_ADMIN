@@ -59,18 +59,31 @@ export default {
             if (this.$route?.meta?.requiresAuth) {
                 this.$router.push({ name: "login" })
             }
+        },
+        // Hàm này sẽ được gọi trong mounted để khôi phục vai trò từ localStorage
+        loadRoleFromLocalStorage() {
+            const role = localStorage.getItem("role") || this.guestRole;
+            const user = JSON.parse(localStorage.getItem("user") || null);
+
+            if (role === this.userRole) {
+                this.authStore.setRole(this.userRole);
+                this.role = this.userRole;
+                if (user) {
+                    this.authStore.setUser(user);
+                }
+            } else {
+                this.authStore.setRole(this.guestRole);
+                this.role = this.guestRole;
+            }
         }
+    },
+    mounted() {
+        this.loadRoleFromLocalStorage();
     }
 }
 </script>
 
 <style>
-/* .container {
-    margin: 0 auto;
-    margin-top: 12px;
-    min-height: calc(100vh - 60px); 
-    padding-top: 60px;
-} */
 
 .app-footer {
     width: 1024px;

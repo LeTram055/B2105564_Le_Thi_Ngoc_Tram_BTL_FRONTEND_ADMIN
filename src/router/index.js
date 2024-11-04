@@ -115,11 +115,13 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
+    const authStore = useAuthStore();
+    authStore.loadRoleFromLocalStorage();
+
     if (!to.meta.requiresAuth) {
         return next()
     }
 
-    const authStore = useAuthStore()
     const role = authStore.getRole
     if (role != to.meta.role) {
         return next({ name: 'login' })

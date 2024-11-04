@@ -16,16 +16,24 @@ const authStore = defineStore('auth', {
     actions: {
         setRole(role) {
             this.role = role
+            localStorage.setItem("userRole", role)
         },
         removeRole() {
             this.role = "guest"
+            localStorage.removeItem("userRole")
         },
         setUser(user) {
             this.user = user
         },
         resetUser() {
             this.user = null
+        },
+        loadRoleFromLocalStorage() {
+        const storedRole = localStorage.getItem('userRole');
+        if (storedRole) {
+            this.role = storedRole;
         }
+    }
     },
 })
 
