@@ -14,7 +14,7 @@ class bookService {
             })).data
             return {
                 status: "success",
-                message: data.message || "Book created successfully",
+                message: data.message || "Sách đã được thêm thành công",
                 data: data.data,
             }
         } catch (err) {
@@ -30,7 +30,7 @@ class bookService {
             const data = (await this.api.get("/admin")).data
             return {
                 status: "success",
-                message: data.message || "Books retrieved successfully",
+                message: data.message || "Sách đã được tìm thấy",
                 data: data.data,
             }
         } catch (err) {
@@ -46,7 +46,7 @@ class bookService {
             const data = (await this.api.get(`/${id}`)).data
             return {
                 status: "success",
-                message: data.message || "book retrieved successfully",
+                message: data.message || "Sách đã được tìm thấy",
                 data: data.data,
             }
         } catch (err) {
@@ -68,7 +68,7 @@ class bookService {
             )).data
             return {
                 status: "success",
-                message: data.message || "book updated successfully",
+                message: data.message || "Sách đã được cập nhật thành công",
                 data: data.data,
             }
         } catch (err) {
@@ -84,7 +84,7 @@ class bookService {
             const data = (await this.api.delete(`/${id}`)).data
             return {
                 status: "success",
-                message: data.message || "book deleted successfully",
+                message: data.message || "Sách đã được xóa thành công",
             }
         } catch (err) {
             return {

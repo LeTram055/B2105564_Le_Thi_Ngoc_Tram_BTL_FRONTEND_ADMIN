@@ -10,7 +10,7 @@ class AuthService {
             const data = (await this.api.post("login", user)).data
             return {
                 status: "success",
-                message: data.message || "User logged in successfully",
+                message: data.message || "Người dùng đăng nhập thành công",
                 data: data.data,
             }
         } catch (err) {
@@ -26,7 +26,7 @@ class AuthService {
             const data = (await this.api.post("register", user)).data
             return {
                 status: "success",
-                message: data.message || "User registered successfully",
+                message: data.message || "Người dùng đăng ký thành công",
                 data: data.data,
             }
         } catch (err) {
@@ -42,7 +42,7 @@ class AuthService {
             const data = (await this.api.post("logout")).data
             return {
                 status: "success",
-                message: data.message || "User logged out successfully",
+                message: data.message || "Người dùng đăng xuất thành công",
             }
         } catch (err) {
             return {

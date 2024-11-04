@@ -25,7 +25,7 @@ class EmployeeService {
             const data = (await this.api.get("/")).data
             return {
                 status: "success",
-                message: data.message || "Employees retrieved successfully",
+                message: data.message || "Nhân viên đã được tìm thấy",
                 data: data.data,
             }
         } catch (err) {
@@ -41,7 +41,7 @@ class EmployeeService {
             const data = (await this.api.post("/", publisher)).data
             return {
                 status: "success",
-                message: data.message || "Employee created successfully",
+                message: data.message || "Nhân viên đã được thêm thành công",
                 data: data.data,
             }
         } catch (err) {
@@ -57,7 +57,7 @@ class EmployeeService {
             const data = (await this.api.put(`/${id}`, publisher)).data
             return {
                 status: "success",
-                message: data.message || "Employee updated successfully",
+                message: data.message || "Nhân viên đã được cập nhật thành công",
                 data: data.data,
             }
         } catch (err) {
@@ -73,7 +73,7 @@ class EmployeeService {
             const data = (await this.api.delete(`/${id}`)).data
             return {
                 status: "success",
-                message: data.message || "Employee deleted successfully",
+                message: data.message || "Nhân viên đã được xóa thành công",
             }
         } catch (err) {
             return {

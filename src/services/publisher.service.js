@@ -10,7 +10,7 @@ class PublisherService {
             const data = (await this.api.get("/")).data
             return {
                 status: "success",
-                message: data.message || "Publishers retrieved successfully",
+                message: data.message || "Nhà xuất bản đã được tìm thấy",
                 data: data.data,
             }
         } catch (err) {
@@ -26,7 +26,7 @@ class PublisherService {
             const data = (await this.api.post("/", publisher)).data
             return {
                 status: "success",
-                message: data.message || "Publisher created successfully",
+                message: data.message || "Nhà xuất bản đã được thêm thành công",
                 data: data.data,
             }
         } catch (err) {
@@ -42,7 +42,7 @@ class PublisherService {
             const data = (await this.api.get(`/${id}`)).data
             return {
                 status: "success",
-                message: data.message || "Publisher retrieved successfully",
+                message: data.message || "Nhà xuất bản đã được tìm thấy",
                 data: data.data,
             }
         } catch (err) {
@@ -58,7 +58,7 @@ class PublisherService {
             const data = (await this.api.put(`/${id}`, publisher)).data
             return {
                 status: "success",
-                message: data.message || "Publisher updated successfully",
+                message: data.message || "Nhà xuất bản đã được cập nhật thành công",
                 data: data.data,
             }
         } catch (err) {
@@ -74,7 +74,7 @@ class PublisherService {
             const data = (await this.api.delete(`/${id}`)).data
             return {
                 status: "success",
-                message: data.message || "Publisher deleted successfully",
+                message: data.message || "Nhà xuất bản đã được xóa thành công",
             }
         } catch (err) {
             return {
