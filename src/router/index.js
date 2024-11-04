@@ -39,6 +39,10 @@ const routes = [
             },
             {
                 path: "books",
+                meta : {
+                    requiresAuth: true,
+                    role: "employee" || "admin",
+                },
                 children: [
                     {
                         path: "",
@@ -60,6 +64,10 @@ const routes = [
 
             {
                 path: "publishers",
+                meta : {
+                    requiresAuth: true,
+                    role: "employee" || "admin",
+                },
                 children: [
                     {
                         path: "",
@@ -81,6 +89,10 @@ const routes = [
 
             {
                 path: "employees",
+                meta : {
+                    requiresAuth: true,
+                    role: "admin",
+                },
                 children: [
                     {
                         path: "",
