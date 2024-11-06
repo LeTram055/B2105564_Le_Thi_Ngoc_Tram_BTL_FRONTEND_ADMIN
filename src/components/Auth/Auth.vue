@@ -1,6 +1,6 @@
 <template>
     <title-form class="title" :title="titleForm"></title-form>
-    <form>
+    <form class="border border-primary rounded p-3">
         <div v-if="isRegister" class="form-group">
             <label for="last-name">Last Name</label>
             <input type="text" class="form-control" id="last-name" placeholder="Nhập họ và chữ lót" v-model="lastName">
