@@ -17,14 +17,14 @@ export default {
     },
     data() {
         return {
-            title: "Thêm sản phẩm",
+            title: "Thêm sách",
             book: null,
         }
     },
     beforeMount: async function() {
         const id = this.$route.params.id
         if (id) {
-            this.title = "Cập nhật sản phẩm"
+            this.title = "Cập nhật sách"
             const res = await bookService.getBookById(id)
             if (res.status === "success") {
                 this.book = res.data

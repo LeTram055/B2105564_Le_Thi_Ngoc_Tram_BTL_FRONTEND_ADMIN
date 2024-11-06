@@ -49,7 +49,7 @@ import InputSearch from '@/components/Layouts/InputSearch.vue';
 export default {
     data() {
         return {
-            title: 'Quản lý sản phẩm',
+            title: 'Quản lý sách',
             books: [],
             filterBooks: [],
             searchTerm: "",

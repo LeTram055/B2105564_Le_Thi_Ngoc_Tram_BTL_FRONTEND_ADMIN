@@ -8,37 +8,35 @@
                 </p>
             </div>
         </td>
-        <td>
-            {{ book.price }} đồng
+        <td class="text-center">
+            {{ formatPrice(book.price) }} đồng
         </td>
-        <td>
+        <td class="text-center">
             {{ book.quantity }}
         </td>
         <td>
-            
-            <button type="button" class="btn btn-outline-secondary btn-description" data-toggle="modal" data-target="#staticBackdrop">
-            Xem mô tả
+            <button type="button" class="btn btn-outline-secondary btn-description" :data-target="`#modal-${book._id}`" data-toggle="modal">
+                Xem
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">{{ book.name }}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="modal fade" :id="`modal-${book._id}`" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">{{ book.name }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-justify">
+                            {{ book.description }}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body text-justify">
-                    {{ book.description }}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    
-                </div>
-                </div>
-            </div>
             </div>
         </td>
         <td>
@@ -47,7 +45,7 @@
         <td>
             {{ book.publisherId.name }}
         </td>
-        <td>
+        <td class="text-center">
             {{ book.publishYear }}
         </td>
         <td>
@@ -79,6 +77,10 @@ export default {
         Btn,
     },
     methods: {
+        formatPrice(price) {
+        if (!price) return "0";
+        return price.toLocaleString('vi-VN');
+        },
         shortText(text, maxLength) {
             if (!maxLength)
                 maxLength = 20
