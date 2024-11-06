@@ -19,7 +19,6 @@
         
         <td class=" d-flex justify-content-center ">
             <btn nameBtn="Sửa" styleBtn="btn-warning" @click="handleUpdate" class="btn-item"></btn>
-            <btn nameBtn="Xóa" styleBtn="btn-danger" @click="handleDelete" class="btn-item"></btn>
         </td>
     </tr>
 </template>
@@ -40,9 +39,7 @@ export default {
         Btn,
     },
     methods: {
-        handleDelete() {
-            this.$emit('deleteEmployee', this.employee);
-        },
+        
         handleUpdate() {
             console.log(this.employee);
             this.$emit('updateEmployee', this.employee);

@@ -28,7 +28,7 @@
                 </thead>
                 <tbody>
                     <employee-item v-for="employee in filterEmployees" :key="employee.__uniqueKey || employee._id" :employee="employee"
-                        @deleteEmployee="handleDelete" @updateEmployee="handleUpdate">
+                        @updateEmployee="handleUpdate">
                     </employee-item>
                 </tbody>
             </table>
@@ -111,18 +111,7 @@ export default {
                 },
             });
         },
-        async handleDelete(employee) {
-            if (window.confirm("Bạn có chắc chắn muốn xóa nhân viên này?")) {
-                await this.deleteEmployee(employee._id);
-                await this.reset()
-            }
-        },
-        async deleteEmployee(id) {
-            const res = await employeeService.deleteEmployee(id);
-            if (res.status == "error")
-                alert(res.message)
-            
-        },
+        
         
     },
 }
