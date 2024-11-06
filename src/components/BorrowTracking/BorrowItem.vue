@@ -1,5 +1,6 @@
 <template>
     <tr>
+        <td> {{ borrow.userId.lastName }} {{ borrow.userId.firstName }} </td>
         <td class="text-center"> {{ formatDateTime(borrow.requestDate) }} </td>
         <td class="text-right"> {{ formatCurrency(borrow.price) }} đồng </td>
         <td class="text-center"> {{ formatDateTime(borrow.borrowDate) }} </td>
@@ -10,45 +11,45 @@
         <td class="func">
             <div class="btn-container">
                 <btn nameBtn="Xem" styleBtn="btn-primary" @click="handleShowDetail" class="btn-item"></btn>
-                <btn v-if="borrow.status !== 'Đã hủy'" nameBtn="Cập nhật" styleBtn="btn-warning" class="btn-item" data-toggle="modal" data-target="#staticBackdrop"></btn>
+                <btn v-if="borrow.status !== 'Đã hủy'" nameBtn="Cập nhật" styleBtn="btn-warning" class="btn-item" data-toggle="modal" :data-target="`#modal-${borrow._id}`"></btn>
             </div>
         </td>
     </tr>
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Cập nhật trạng thái</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Đã xác nhận" v-model="selectedStatus">
-        <label class="form-check-label" for="exampleRadios1">
-            Đã xác nhận
-        </label>
+    <div class="modal fade" :id="`modal-${borrow._id}`" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Cập nhật trạng thái</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Đã xác nhận" v-model="selectedStatus">
+                <label class="form-check-label" for="exampleRadios1">
+                    Đã xác nhận
+                </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Đã mượn" v-model="selectedStatus">
+                <label class="form-check-label" for="exampleRadios2">
+                    Đã mượn
+                </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Đã trả" v-model="selectedStatus">
+                <label class="form-check-label" for="exampleRadios3">
+                    Đã trả
+                </label>
+            </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" @click="handleUpdate">Xác nhận</button>
+            </div>
+            </div>
         </div>
-        <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Đã mượn" v-model="selectedStatus">
-        <label class="form-check-label" for="exampleRadios2">
-            Đã mượn
-        </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Đã trả" v-model="selectedStatus">
-        <label class="form-check-label" for="exampleRadios3">
-            Đã trả
-        </label>
-    </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" @click="handleUpdate">Xác nhận</button>
-      </div>
-    </div>
-  </div>
 </div>
 </template>
 
@@ -112,6 +113,7 @@ export default {
             } else {
                 this.$emit('update', { id: this.borrow._id, status: this.selectedStatus});
             }
+            $(`#modal-${this.borrow._id}`).modal('hide');
         }
     }
 };

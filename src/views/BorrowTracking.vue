@@ -14,6 +14,7 @@
             <table class="table table-bordered table-responsive-lg">
                 <thead class="thead-light">
                     <tr>
+                        <th scope="col" class="text-center align-middle">Người mượn</th>
                         <th scope="col" class="text-center align-middle">Ngày yêu cầu</th>
                         <th scope="col" class="text-center align-middle">Tổng thanh toán</th>
                         <th scope="col" class="text-center align-middle">Ngày mượn</th>
@@ -117,7 +118,7 @@ export default {
                 if (res.status === "success") {
                     await this.getBorrows();
                     this.filter();
-                    $('#staticBackdrop').modal('hide');
+                    
                 } else {
                     alert(res.message);
                 }
