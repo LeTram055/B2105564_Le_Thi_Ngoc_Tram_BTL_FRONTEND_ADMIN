@@ -4,6 +4,7 @@ import useAuthStore from "@/stores/auth.store.js";
 import Home from "@/views/Home.vue";
 import Login from "@/views/Login.vue";
 import Register from "@/views/Register.vue";
+import ChangePassword from "@/views/ChangePassword.vue";
 import Publisher from "@/views/Publisher.vue";
 import UpdatePublisher from "@/views/UpdatePublisher.vue";
 import Book from "@/views/Book.vue";
@@ -15,6 +16,7 @@ import BorrowTracking from "@/views/BorrowTracking.vue";
 import BorrowDetail from "@/views/BorrowDetail.vue";
 
 import NotFound from "@/views/NotFound.vue";
+
 
 const routes = [
     {
@@ -39,6 +41,15 @@ const routes = [
                 path: "",
                 component: Home,
                 name: "adminHome",
+            },
+            {
+                path: "change-password",
+                component: ChangePassword,
+                name: "changePassword",
+                meta : {
+                    requiresAuth: true,
+                    role: ["employee", "admin"],
+                },
             },
             {
                 path: "books",

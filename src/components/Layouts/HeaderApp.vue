@@ -27,6 +27,9 @@
                 <li class="nav-item">
                     <nav-item :title="'Duyệt đơn mượn'" :routerName="'borrowTrackings'" class="navbar-brand"></nav-item>
                 </li>
+                <li class="nav-item" v-if="role === employeeRole || role === adminRole">
+                    <nav-item :title="'Đổi mật khẩu'" :routerName="'changePassword'" class="navbar-brand"></nav-item>
+                </li>
             </ul>
         <div class="ml-auto mr-2">
             <button v-if="role === guestRole" class="btn btn-light login-btn" @click="login">

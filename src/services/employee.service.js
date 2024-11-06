@@ -82,6 +82,22 @@ class EmployeeService {
             }
         }
     }
+
+    async changePassword(id, oldPassword, newPassword) {
+        try {
+            const data = (await this.api.put(`/${id}/change-password`, { oldPassword, newPassword })).data;
+            return {
+                status: "success",
+                message: data.message || "Mật khẩu đã được thay đổi thành công",
+                data: data.data,
+            };
+        } catch (err) {
+            return {
+                status: "error",
+                message: err.response.data.message,
+            };
+        }
+    }
 }
 
 export default new EmployeeService()
