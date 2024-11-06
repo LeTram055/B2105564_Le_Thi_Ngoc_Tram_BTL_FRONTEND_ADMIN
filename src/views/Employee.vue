@@ -15,7 +15,7 @@
         </div>
         
         <div class="row my-2">
-            <table class="table table-bordered w-100">
+            <table class="table table-bordered table-responsive-lg">
                 <thead class="">
                     <tr>
                         <th scope="col" class="text-center align-top">Tên</th>

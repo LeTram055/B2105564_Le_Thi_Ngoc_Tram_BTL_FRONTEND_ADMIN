@@ -65,9 +65,15 @@ export default {
             const role = localStorage.getItem("role") || this.guestRole;
             const user = JSON.parse(localStorage.getItem("user") || null);
 
-            if (role === this.userRole) {
-                this.authStore.setRole(this.userRole);
-                this.role = this.userRole;
+            if (role === this.employeeRole) {
+                this.authStore.setRole(this.employeeRole);
+                this.role = this.employeeRole;
+                if (user) {
+                    this.authStore.setUser(user);
+                }
+            } else if (role == this.adminRole) {
+                this.authStore.setRole(this.adminRole);
+                this.role = this.adminRole;
                 if (user) {
                     this.authStore.setUser(user);
                 }
@@ -75,8 +81,8 @@ export default {
                 this.authStore.setRole(this.guestRole);
                 this.role = this.guestRole;
             }
-        }
-    },
+            }
+        },
     mounted() {
         this.loadRoleFromLocalStorage();
     }
