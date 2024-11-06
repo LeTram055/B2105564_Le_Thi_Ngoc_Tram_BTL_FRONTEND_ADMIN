@@ -19,6 +19,9 @@
                     <nav-item :title="'Nhà xuất bản'" :routerName="'publishers'" class="navbar-brand"></nav-item>
                 </li>
                 <li class="nav-item">
+                    <nav-item :title="'Người đọc'" :routerName="'users'" class="navbar-brand"></nav-item>
+                </li>
+                <li class="nav-item">
                     <nav-item v-if="role == adminRole" :title="'Nhân viên'" :routerName="'employees'" class="navbar-brand"></nav-item>
                 </li>
                 <li class="nav-item">

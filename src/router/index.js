@@ -9,6 +9,7 @@ import UpdatePublisher from "@/views/UpdatePublisher.vue";
 import Book from "@/views/Book.vue";
 import UpdateBook from "@/views/UpdateBook.vue";
 import Employee from "@/views/Employee.vue";
+import User from "@/views/User.vue";
 import UpdateEmployee from "@/views/UpdateEmployee.vue";
 import BorrowTracking from "@/views/BorrowTracking.vue";
 import BorrowDetail from "@/views/BorrowDetail.vue";
@@ -112,6 +113,15 @@ const routes = [
                         name: "createEmployee",
                     },
                 ]
+            },
+            {
+                path: "users",
+                meta : {
+                    requiresAuth: true,
+                    role: ["employee", "admin"],
+                },
+                component: User,
+                name: "users",
             },
             {
                 path: "borrowTrackings",
