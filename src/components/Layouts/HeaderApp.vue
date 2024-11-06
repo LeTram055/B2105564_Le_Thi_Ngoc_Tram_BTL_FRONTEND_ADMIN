@@ -1,21 +1,38 @@
 <template>
         
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-navbar" style="background-color: blue;">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-navbar">
         <router-link :to="{ name: 'adminHome' }" class="navbar-brand">
             <img src="../../../src/assets/images/logo.png" width="30" height="30" class="navbar-logo" alt="Logo">
         </router-link>
-        <nav-item :title="'Trang chủ'" :routerName="'adminHome'" class="navbar-brand"></nav-item>
-        <nav-item :title="'Sách'" :routerName="'books'" class="navbar-brand"></nav-item>
-        <nav-item :title="'Nhà xuất bản'" :routerName="'publishers'" class="navbar-brand"></nav-item>
-        <nav-item v-if="role == adminRole" :title="'Nhân viên'" :routerName="'employees'" class="navbar-brand"></nav-item>
-        <!-- <nav-item :title="'Duyệt đơn mượn'" :routerName="'orderPage'" class="navbar-brand"></nav-item> -->
-        <div class="ml-auto">
-            <button v-if="role === guestRole" class="btn btn-secondary login-btn" @click="login">
+        <button class="navbar-toggler mb-3 mr-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-bg" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <nav-item :title="'Trang chủ'" :routerName="'adminHome'" class="navbar-brand"></nav-item>
+                </li>
+                <li class="nav-item">
+                    <nav-item :title="'Sách'" :routerName="'books'" class="navbar-brand"></nav-item>
+                </li>
+                <li class="nav-item">
+                    <nav-item :title="'Nhà xuất bản'" :routerName="'publishers'" class="navbar-brand"></nav-item>
+                </li>
+                <li class="nav-item">
+                    <nav-item v-if="role == adminRole" :title="'Nhân viên'" :routerName="'employees'" class="navbar-brand"></nav-item>
+                </li>
+                <li class="nav-item">
+                    <nav-item :title="'Duyệt đơn mượn'" :routerName="'borrowTrackings'" class="navbar-brand"></nav-item>
+                </li>
+            </ul>
+        <div class="ml-auto mr-2">
+            <button v-if="role === guestRole" class="btn btn-light login-btn" @click="login">
                 Đăng nhập
             </button>
-            <button v-else-if="role === employeeRole || role === adminRole" class="btn btn-secondary logout-btn" @click="logout">
+            <button v-else-if="role === employeeRole || role === adminRole" class="btn btn-light logout-btn" @click="logout">
                 Đăng xuất
             </button>
+        </div>
         </div>
     </nav>
 </template>
@@ -55,17 +72,27 @@ export default {
 
 <style scoped>
 .fixed-navbar {
-    height: 55px; /* Chọn chiều cao phù hợp */
-    padding: 0 10px;
+    height: 55px;
+    padding: 0px;
+    background-color: blue;
+   
 }
 
 /* Tăng kích thước hình ảnh mà không làm tăng kích thước navbar */
 .navbar-logo {
     width: 50px; /* Điều chỉnh kích thước phù hợp */
     height: auto;
+    margin-left: 5px;
 }
 
-.login-btn:hover, .logout-btn:hover {
-    cursor: pointer;
+.nav-bg {
+    
+    background-color: blue;
+}
+@media (max-width: 986px) {
+    .navbar-brand, .login-btn, .logout-btn {
+        margin: 0px 10px 10px 15px;
+        
+    }
 }
 </style>

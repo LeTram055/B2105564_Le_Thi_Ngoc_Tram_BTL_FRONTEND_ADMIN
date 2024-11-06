@@ -10,6 +10,8 @@ import Book from "@/views/Book.vue";
 import UpdateBook from "@/views/UpdateBook.vue";
 import Employee from "@/views/Employee.vue";
 import UpdateEmployee from "@/views/UpdateEmployee.vue";
+import BorrowTracking from "@/views/BorrowTracking.vue";
+import BorrowDetail from "@/views/BorrowDetail.vue";
 
 import NotFound from "@/views/NotFound.vue";
 
@@ -41,7 +43,7 @@ const routes = [
                 path: "books",
                 meta : {
                     requiresAuth: true,
-                    role: "employee" || "admin",
+                    role: ["employee", "admin"],
                 },
                 children: [
                     {
@@ -66,7 +68,7 @@ const routes = [
                 path: "publishers",
                 meta : {
                     requiresAuth: true,
-                    role: "employee" || "admin",
+                    role: ["employee", "admin"],
                 },
                 children: [
                     {
@@ -111,6 +113,25 @@ const routes = [
                     },
                 ]
             },
+            {
+                path: "borrowTrackings",
+                meta : {
+                    requiresAuth: true,
+                    role: ["employee", "admin"],   
+                },
+                children: [
+                    {
+                        path: "",
+                        component: BorrowTracking,
+                        name: "borrowTrackings",
+                    },
+                    {
+                        path: ":id",
+                        component: BorrowDetail,
+                        name: "borrowDetail",
+                    }
+                ]
+            },
         ],
     },
     
@@ -135,7 +156,8 @@ router.beforeEach((to, from, next) => {
     }
 
     const role = authStore.getRole
-    if (role != to.meta.role) {
+    if (!to.meta.role.includes(role)) {
+        alert("Bạn không có quyền truy cập")
         return next({ name: 'login' })
     }
     return next()
