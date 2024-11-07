@@ -1,11 +1,11 @@
 <template>
     <div class="container">
-        <div class="row my-2 justify-content-center">
+        <div class="row my-3 justify-content-center">
             <greeting :title="title"></greeting>
             
         </div>
 
-        <div class="row my-2 justify-content-between">
+        <div class="row my-3 justify-content-between">
             <div>
                 <btn nameBtn="Thêm" @click="createBook"></btn>
             </div>
@@ -16,7 +16,7 @@
         
         <div class="row my-2">
             <table class="table table-bordered table-responsive">
-                <thead class="">
+                <thead class="thead-light">
                     <tr>
                         <th scope="col" class="text-center align-top">Sách</th>
                         <th scope="col" class="text-center align-top">Giá</th>

@@ -16,7 +16,7 @@
         
         <div class="row my-2">
             <table class="table table-bordered table-responsive-lg">
-                <thead class="">
+                <thead class="thead-light">
                     <tr>
                         <th scope="col" class="text-center align-top">Tên</th>
                         <th scope="col" class="text-center align-top">Chức vụ</th>
