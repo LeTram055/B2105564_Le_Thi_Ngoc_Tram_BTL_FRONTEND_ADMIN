@@ -7,7 +7,7 @@ export default {
     props: {
         nameBtn: {
             type: String,
-            default: 'Submit'
+            default: 'Lưu'
         },
         styleBtn: {
             type: String,
