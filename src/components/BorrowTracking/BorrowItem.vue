@@ -93,14 +93,6 @@ export default {
             const year = date.getFullYear();
             return `${day}/${month}/${year}`;
         },
-        shortForm(text, maxLength) {
-            if (!maxLength)
-                maxLength = 20
-            if (text.length > maxLength) {
-                return text.substring(0, maxLength) + '...';
-            }
-            return text;
-        },
         
         handleShowDetail() {
             this.$emit('showDetail', this.borrow)

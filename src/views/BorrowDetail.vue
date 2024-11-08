@@ -19,8 +19,7 @@
                         v-for="borrowDetail in borrowTrackingItems" 
                         :key="borrowDetail._id" 
                         :borrow-detail="borrowDetail"
-                        >
-                        >
+                    >
                     </borrow-detail-item>
                 </tbody>
                 

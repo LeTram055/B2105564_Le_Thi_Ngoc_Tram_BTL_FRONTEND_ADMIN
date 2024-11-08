@@ -77,7 +77,7 @@ export default {
             name: "",
             price: null,
             quantity: null,
-            publishYear: 2024,
+            publishYear: null,
             publisherId: "",
             description: "",
             author: "",
